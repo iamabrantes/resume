@@ -425,7 +425,7 @@ transition: .3s;
 .experience__line{
   display: block;
   width: 2px;
-  height: 110%;
+  height: 100%;
   background-color: var(--text-color-light);
   transform: translate(7px, 0);
 }
@@ -571,3 +571,4 @@ transition: .3s;
     gap: 1.5rem;
   }
 }
+
