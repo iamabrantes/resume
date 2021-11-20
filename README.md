@@ -7,4 +7,4 @@ Criando imagem no Docker
 
 executando imagem no Docker
 
-#docker run -it --rm -p 8080:80 curriculo
+#docker run -it -d --rm -p 80:80 curriculo
