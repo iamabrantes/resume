@@ -5,6 +5,6 @@ How to create image on Docker
 
 #docker build . -t resume
 
-executando imagem no Docker
+Deploying docker image
 
 #docker run -it -d --rm -p 80:80 resume
