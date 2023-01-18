@@ -341,8 +341,8 @@ transition: .3s;
 }
 
 .home__img{
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   justify-self: center;
   margin-bottom: var(--mb-1);
