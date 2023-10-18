@@ -1,10 +1,9 @@
-# Resume
-Jonathan's resume in english
+# Currículo Jonathan
 
-How to create image on Docker
+Fazer o build da imagem no docker
 
-#docker build . -t resume
+#docker build . -t curriculo
 
-Deploying docker image
+Executando imagem no Docker
 
-#docker run -it -d --rm -p 80:80 resume
+#docker run -it -d --rm -p 80:80 curriculo
