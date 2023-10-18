@@ -139,6 +139,11 @@ section ul li:hover {
   display: block;
 }
 
+.about div h1 a{
+  color: white;
+  text-decoration: none;
+}
+
 .experiences ul li p {
   text-indent: 20px;
   font-size: 14px;
