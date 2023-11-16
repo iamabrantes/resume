@@ -15,3 +15,5 @@ jobs:
 
     - name: Acessar o valor do segredo
       run: echo "O valor do meu segredo é ${{ secrets.MEU_SEGREDO }}"
+      env:
+        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
