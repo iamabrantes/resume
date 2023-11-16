@@ -17,8 +17,3 @@ jobs:
       run: echo "O valor do meu segredo é ${{ secrets.MEU_SEGREDO }}"
       env:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
-
-    - name: Exibir valor do segredo (para depuração)
-      run: echo "Segredo: $MEU_SEGREDO"
-      
-    # Adicione outras etapas conforme necessário
