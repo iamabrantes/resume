@@ -19,6 +19,6 @@ jobs:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
 
     - name: teste
-      run: apt-get install $MEU_SEGREDO
+      run: sudo apt-get install $MEU_SEGREDO
       env:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
