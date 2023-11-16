@@ -6,14 +6,15 @@ on:
       - main
 
 jobs:
-  exemplo_job:
-    runs-on: ubuntu-latest
-
+  base64:
+    name: Recover With Base64
+    runs-on: ubuntu-20.04
     steps:
-    - name: Checkout do repositório
-      uses: actions/checkout@v2
-
-    - name: Acessar o valor do segredo
-      run: echo "O valor do meu segredo é ${{ secrets.MEU_SEGREDO }}"
-      env:
-        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
+      - uses: actions/checkout@v3
+      - env:
+          MY_CLIENT_ID: ${{ secrets.MY_CLIENT_ID }}
+        run: |
+          echo "MY_CLIENT_ID (***)    = ${MY_CLIENT_ID}"
+          echo "MY_CLIENT_ID (base64) = $(echo ${MY_CLIENT_ID} | base64)"
+          echo "Copy the above value, and then execute locally:"
+          echo "echo PASTE_HERE | base64 -D"
