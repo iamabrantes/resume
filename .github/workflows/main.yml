@@ -1,0 +1,21 @@
+name: Seu Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  seu-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repositório
+      uses: actions/checkout@v2
+
+    - name: Adicionar novo step
+      shell: bash
+      env:
+        SUPER_SECRET: ${{ secrets.SECRET }}
+      run: |
+        example-command "$SUPER_SECRET"
