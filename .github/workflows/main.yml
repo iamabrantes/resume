@@ -20,5 +20,5 @@ jobs:
 
     - name: Exibir valor do segredo (para depuração)
       run: echo "Segredo: $MEU_SEGREDO"
-
+      
     # Adicione outras etapas conforme necessário
