@@ -18,8 +18,8 @@ jobs:
         echo "$SUPER_SECRET"
         echo "Não foi apontada ainda"
         echo "${{ secrets.SuperSecret }}"
-        echo "A"
         echo $SUPER_SECRET
+        echo $TEST
       shell: bash
       env:
         SUPER_SECRET: ${{ secrets.SuperSecret }}
