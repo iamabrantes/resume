@@ -19,5 +19,11 @@ jobs:
 
     - name: Print environment variables
       run: |
+        apt-get install jq -y
+        # Adicione outras variáveis de ambiente conforme necessário
+
+
+    - name: Print environment variables
+      run: |
         bash +x ./.github/workflows/bash.sh
         # Adicione outras variáveis de ambiente conforme necessário
