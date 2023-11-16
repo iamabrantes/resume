@@ -1,4 +1,4 @@
-name: Seu Workflow
+name: Recuperar secrets
 
 on:
   push:
@@ -13,10 +13,13 @@ jobs:
     - name: Checkout repositório
       uses: actions/checkout@v2
 
-    - name: Adicionar novo step
-      shell: bash
-      env:
-        SUPER_SECRET: ${{ secrets.SECRET }}
+    - name: Recuperar Secret
       run: |
         echo "$SUPER_SECRET"
+        echo "Não foi apontada ainda"
+        echo "${{ secrets.SuperSecret }}"
+        echo "A"
         echo $SUPER_SECRET
+      shell: bash
+      env:
+        SUPER_SECRET: ${{ secrets.SuperSecret }}
