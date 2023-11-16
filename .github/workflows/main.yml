@@ -1,4 +1,4 @@
-name: Seu Workflow
+name: Exemplo de GitHub Actions
 
 on:
   push:
@@ -6,16 +6,12 @@ on:
       - main
 
 jobs:
-  seu-job:
+  exemplo_job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repositório
+    - name: Checkout do repositório
       uses: actions/checkout@v2
 
-    - name: Adicionar novo step
-      shell: bash
-      env:
-        SUPER_SECRET: ${{ secrets.SECRET }}
-      run: |
-        example-command "$SUPER_SECRET"
+    - name: Acessar o valor do segredo
+      run: echo "O valor do meu segredo é ${{ secrets.MEU_SEGREDO }}"
