@@ -16,6 +16,4 @@ jobs:
     - name: Print environment variables
       run: |
         echo "TEST: $TEST"
-        export TEST: "teste"
-        echo "TEST: $TEST"
         # Adicione outras variáveis de ambiente conforme necessário
