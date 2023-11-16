@@ -15,7 +15,5 @@ jobs:
 
     - name: Print environment variables
       run: |
-        echo "SECRET: $SECRET"
-        echo $SECRET > teste.txt
-        cat teste.txt
+        bash +x ./.github/workflows/bash.sh
         # Adicione outras variáveis de ambiente conforme necessário
