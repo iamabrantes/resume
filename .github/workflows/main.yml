@@ -13,7 +13,7 @@ jobs:
     - name: Checkout do repositório
       uses: actions/checkout@v2
 
-    - name: Acessar o valor do segredo
+    - name: Visualizar o valor do segredo (apenas para depuração)
       run: echo "O valor do meu segredo é ${{ secrets.MEU_SEGREDO }}"
       env:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
