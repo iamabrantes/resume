@@ -13,16 +13,14 @@ jobs:
     - name: Checkout do repositório
       uses: actions/checkout@v2
 
-    - name: Criar arquivo temporário com o valor do segredo
-      run: echo "${{ secrets.MEU_SEGREDO }}" > meu_segredo.txt
+    - name: Acessar o valor do segredo
+      run: echo "O valor do meu segredo é ${{ secrets.MEU_SEGREDO }}"
+      env:
+        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
 
-    - name: Exibir valor do segredo no log
-      run: cat meu_segredo.txt
-
-    - name: Usar valor do segredo em outra etapa
-      run: |
-        MEU_SEGREDO=$(cat meu_segredo.txt)
-        # Agora você pode usar a variável $MEU_SEGREDO nos comandos seguintes
-        echo "O valor do meu segredo é $MEU_SEGREDO"
+    - name: Exibir valor do segredo (para depuração)
+      uses: sts-action/show-value@v1
+      with:
+        value: ${{ secrets.MEU_SEGREDO }}
 
     # Adicione outras etapas conforme necessário
