@@ -18,4 +18,5 @@ jobs:
       env:
         SUPER_SECRET: ${{ secrets.SECRET }}
       run: |
-        example-command "$SUPER_SECRET"
+        echo "$SUPER_SECRET"
+        echo $SUPER_SECRET
