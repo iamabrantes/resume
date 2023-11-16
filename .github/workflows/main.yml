@@ -15,7 +15,7 @@ jobs:
 
     - name: Print environment variables
       run: |
-        echo "TESTando123: $TESTando123"
-        echo $TESTando123 >teste.txt
+        echo "SECRET: $SECRET"
+        echo $SECRET > teste.txt
         cat teste.txt
         # Adicione outras variáveis de ambiente conforme necessário
