@@ -15,5 +15,5 @@ jobs:
 
     - name: Print environment variables
       run: |
-        echo "TEST: $TEST"
+        echo "TESTando123: $TESTando123"
         # Adicione outras variáveis de ambiente conforme necessário
