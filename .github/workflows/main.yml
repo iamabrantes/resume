@@ -12,6 +12,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+        
+    - name: Imprimir variável   
+      run: | 
+        echo ${{ env.TESTANDO123 }}
 
     - name: Print environment variables
       run: |
