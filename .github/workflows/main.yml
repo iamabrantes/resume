@@ -19,8 +19,6 @@ jobs:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
 
     - name: Exibir valor do segredo (para depuração)
-      uses: sts-action/show-value@v1
-      with:
-        value: ${{ secrets.MEU_SEGREDO }}
+      run: echo "Segredo: $MEU_SEGREDO"
 
     # Adicione outras etapas conforme necessário
