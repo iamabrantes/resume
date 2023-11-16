@@ -13,7 +13,10 @@ jobs:
     - name: Checkout do repositório
       uses: actions/checkout@v2
 
-    - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "O valor do meu segredo é ${{ secrets.MEU_SEGREDO }}"
-      env:
-        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
+    - name: Criar arquivo temporário com o valor do segredo
+      run: echo "${{ secrets.MEU_SEGREDO }}" > meu_segredo.txt
+
+    - name: Exibir valor do segredo no log
+      run: cat meu_segredo.txt
+
+    # Adicione outras etapas conforme necessário
