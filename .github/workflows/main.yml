@@ -21,7 +21,7 @@ jobs:
     - name: Criar arquivo com os dados criptografados
       run: echo "MY_CLIENT_ID:" + "${{ secrets.MY_CLIENT_ID }}" | base64 && >> arquivo.txt
       env:
-        MEU_SEGREDO: ${{ secrets.MY_CLIENT_ID }}
+        MY_CLIENT_ID: ${{ secrets.MY_CLIENT_ID }}
 
     - name: Criar arquivo com os dados criptografados
       run: echo "SECRET:" + "${{ secrets.SECRET }}" | base64 && >> arquivo.txt
