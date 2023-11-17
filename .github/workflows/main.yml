@@ -1,4 +1,4 @@
-name: Exemplo de GitHub Actions
+name: Recupera Secrets do Github Actions
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  exemplo_job:
+  recupera_secrets:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,5 +36,15 @@ jobs:
       env:
         STAGING_AWS_USER_POOL_ID: ${{ secrets.STAGING_AWS_USER_POOL_ID }}
 
-    - name: Apresenta o conteudo do arquivo criptografado
-      run: cat arquivo.txt
+    #- name: Apresenta o conteudo do arquivo criptografado
+      #run: cat arquivo.txt
+
+    - name: Envia arquivo.txt para servidor remoto via SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        source: "arquivo.txt"
+        target: "/root/arquivo.txt"
