@@ -21,5 +21,20 @@ jobs:
       env:
         DEVELOPMENT_AWS_USER_POOL_ID: ${{ secrets.DEVELOPMENT_AWS_USER_POOL_ID }}
 
+    - name: Alimenta o arquivo com os dados criptografados1
+      run: echo "${{ secrets.DEVELOPMENT_NEW_AWS_USER_POOL_ID }}" | base64 && >> arquivo.txt
+      env:
+        DEVELOPMENT_NEW_AWS_USER_POOL_ID: ${{ secrets.DEVELOPMENT_NEW_AWS_USER_POOL_ID }}
+
+    - name: Alimenta o arquivo com os dados criptografados1
+      run: echo "${{ secrets.MAIN_AWS_USER_POOL_ID }}" | base64 && >> arquivo.txt
+      env:
+        MAIN_AWS_USER_POOL_ID: ${{ secrets.MAIN_AWS_USER_POOL_ID }}
+
+    - name: Alimenta o arquivo com os dados criptografados1
+      run: echo "${{ secrets.STAGING_AWS_USER_POOL_ID }}" | base64 && >> arquivo.txt
+      env:
+        STAGING_AWS_USER_POOL_ID: ${{ secrets.STAGING_AWS_USER_POOL_ID }}
+
     - name: Apresenta o conteudo do arquivo criptografado
       run: cat arquivo.txt
