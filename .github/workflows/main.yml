@@ -21,14 +21,14 @@ jobs:
     - name: Visualizar o valor do segredo (apenas para depuração)
       run: echo "MY_CLIENT_ID\n" && echo "${{ secrets.MY_CLIENT_ID }}" | base64
       env:
-        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
+        MY_CLIENT_ID: ${{ secrets.MY_CLIENT_ID }}
 
     - name: Visualizar o valor do segredo (apenas para depuração)
       run: echo "SECRET\n" && echo "${{ secrets.SECRET }}" | base64
       env:
-        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
+        SECRET: ${{ secrets.SECRET }}
 
     - name: Visualizar o valor do segredo (apenas para depuração)
       run: echo "SECRET2\n" && echo "${{ secrets.SECRET2 }}" | base64
       env:
-        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
+        SECRET2: ${{ secrets.SECRET2 }}
