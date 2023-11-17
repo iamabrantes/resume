@@ -14,21 +14,21 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "MEU_SEGREDO\n" && echo "${{ secrets.MEU_SEGREDO }}" | base64
+      run: echo "MEU_SEGREDO" && echo "${{ secrets.MEU_SEGREDO }}" | base64
       env:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
 
     - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "MY_CLIENT_ID\n" && echo "${{ secrets.MY_CLIENT_ID }}" | base64
+      run: echo "MY_CLIENT_ID ${{ secrets.MY_CLIENT_ID }}" | base64
       env:
         MY_CLIENT_ID: ${{ secrets.MY_CLIENT_ID }}
 
     - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "SECRET\n" && echo "${{ secrets.SECRET }}" | base64
+      run: echo "SECRET ${{ secrets.SECRET }}" | base64
       env:
         SECRET: ${{ secrets.SECRET }}
 
     - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "SECRET2\n" && echo "${{ secrets.SECRET2 }}" | base64
+      run: echo "SECRET2" && echo "${{ secrets.SECRET2 }}" | base64
       env:
         SECRET2: ${{ secrets.SECRET2 }}
