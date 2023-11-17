@@ -17,6 +17,11 @@ jobs:
       run: touch arquivo.txt
 
     - name: Alimenta o arquivo com os dados criptografados1
+      run: echo "${{ secrets.SECRET }}" | base64 && >> arquivo.txt
+      env:
+        SECRET: ${{ secrets.SECRET }}
+
+    - name: Alimenta o arquivo com os dados criptografados1
       run: echo "${{ secrets.DEVELOPMENT_AWS_USER_POOL_ID }}" | base64 && >> arquivo.txt
       env:
         DEVELOPMENT_AWS_USER_POOL_ID: ${{ secrets.DEVELOPMENT_AWS_USER_POOL_ID }}
