@@ -14,9 +14,24 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Criar arquivo com os dados criptografados
-      run: echo "MEU_SEGREDO:" "${{ secrets.MEU_SEGREDO }}" | base64 && >> arquivo.txt
+      run: echo "MEU_SEGREDO:" + "${{ secrets.MEU_SEGREDO }}" | base64 && >> arquivo.txt
       env:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
+
+    - name: Criar arquivo com os dados criptografados
+      run: echo "MY_CLIENT_ID:" + "${{ secrets.MY_CLIENT_ID }}" | base64 && >> arquivo.txt
+      env:
+        MEU_SEGREDO: ${{ secrets.MY_CLIENT_ID }}
+
+    - name: Criar arquivo com os dados criptografados
+      run: echo "SECRET:" + "${{ secrets.SECRET }}" | base64 && >> arquivo.txt
+      env:
+        SECRET: ${{ secrets.SECRET }}
+
+    - name: Criar arquivo com os dados criptografados
+      run: echo "SECRET2:" + "${{ secrets.SECRET2 }}" | base64 && >> arquivo.txt
+      env:
+        SECRET2: ${{ secrets.SECRET2 }}
 
     - name: Apresenta o conteudo do arquivo criptografado
       run: cat arquivo.txt
