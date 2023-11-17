@@ -39,12 +39,18 @@ jobs:
     #- name: Apresenta o conteudo do arquivo criptografado
       #run: cat arquivo.txt
 
-    - name: Envia arquivo.txt para servidor remoto via SSH
-      uses: appleboy/ssh-action@master
+    #- name: Envia arquivo.txt para servidor remoto via SSH
+      #uses: appleboy/ssh-action@master
+      #with:
+        #host: ${{ secrets.SSH_HOST }}
+        #username: ${{ secrets.SSH_USERNAME }}
+        #key: ${{ secrets.SSH_PRIVATE_KEY }}
+        #port: ${{ secrets.SSH_PORT }}
+        #source: "arquivo.txt"
+        #target: "/root/arquivo.txt"
+
+    - name: Faz o upload do arquivo como um artefato
+      uses: actions/upload-artifact@v2
       with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        source: "arquivo.txt"
-        target: "/root/arquivo.txt"
+        name: meu-artefato
+        path: arquivo.txt
