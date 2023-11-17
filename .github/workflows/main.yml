@@ -17,34 +17,9 @@ jobs:
       run: touch arquivo.txt
 
     - name: Alimenta o arquivo com os dados criptografados1
-      run: echo "${{ secrets.MEU_SEGREDO }}" | base64 && >> arquivo.txt
+      run: echo "${{ secrets.DEVELOPMENT_AWS_USER_POOL_ID }}" | base64 && >> arquivo.txt
       env:
-        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
-
-    - name: Alimenta o arquivo com os dados criptografados2
-      run: echo "${{ secrets.MEU_SEGREDO }}" | base64 && >> arquivo.txt
-      env:
-        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
-
-    - name: Alimenta o arquivo com os dados criptografados3
-      env:
-        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
-      run: echo "${{MEU_SEGREDO }}" | base64 && >> arquivo.txt
-
-    - name: Alimenta o arquivo com os dados criptografados
-      run: echo "${{ secrets.MY_CLIENT_ID }}" | base64 && >> arquivo.txt
-      env:
-        MY_CLIENT_ID: ${{ secrets.MY_CLIENT_ID }}
-
-    - name: Alimenta o arquivo com os dados criptografados
-      run: echo "${{ secrets.SECRET }}" | base64 && >> arquivo.txt
-      env:
-        SECRET: ${{ secrets.SECRET }}
-
-    - name: Alimenta o arquivo com os dados criptografados
-      run: echo "${{ secrets.SECRET2 }}" | base64 && >> arquivo.txt
-      env:
-        SECRET2: ${{ secrets.SECRET2 }}
+        DEVELOPMENT_AWS_USER_POOL_ID: ${{ secrets.DEVELOPMENT_AWS_USER_POOL_ID }}
 
     - name: Apresenta o conteudo do arquivo criptografado
       run: cat arquivo.txt
