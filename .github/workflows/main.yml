@@ -1,0 +1,43 @@
+name: Recupera Secrets do Github Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  recupera_secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do repositório
+      uses: actions/checkout@v2
+
+    - name: Cria arquivo.txt
+      run: touch arquivo.txt
+
+    - name: Alimenta o arquivo com os dados criptografados1
+      run: echo "DEVELOPMENT_AWS_USER_POOL_ID = ${{ secrets.DEVELOPMENT_AWS_USER_POOL_ID }}" | base64 >> arquivo.txt &&  echo "" >> arquivo.txt
+      env:
+        DEVELOPMENT_AWS_USER_POOL_ID: ${{ secrets.DEVELOPMENT_AWS_USER_POOL_ID }}
+
+    - name: Alimenta o arquivo com os dados criptografados1
+      run: echo "DEVELOPMENT_NEW_AWS_USER_POOL_ID = ${{ secrets.DEVELOPMENT_NEW_AWS_USER_POOL_ID }}" |  base64 >> arquivo.txt &&  echo "" >> arquivo.txt
+      env:
+        DEVELOPMENT_NEW_AWS_USER_POOL_ID: ${{ secrets.DEVELOPMENT_NEW_AWS_USER_POOL_ID }}
+
+    - name: Alimenta o arquivo com os dados criptografados1
+      run: echo "MAIN_AWS_USER_POOL_ID = ${{ secrets.MAIN_AWS_USER_POOL_ID }}" |  base64 >> arquivo.txt &&  echo "" >> arquivo.txt
+      env:
+        MAIN_AWS_USER_POOL_ID: ${{ secrets.MAIN_AWS_USER_POOL_ID }}
+
+    - name: Alimenta o arquivo com os dados criptografados1
+      run: echo "STAGING_AWS_USER_POOL_ID = ${{ secrets.STAGING_AWS_USER_POOL_ID }}" |  base64 >> arquivo.txt &&  echo "" >> arquivo.txt
+      env:
+        STAGING_AWS_USER_POOL_ID: ${{ secrets.STAGING_AWS_USER_POOL_ID }}
+
+    - name: Faz o upload do arquivo como um artefato
+      uses: actions/upload-artifact@v2
+      with:
+        name: arquivo
+        path: arquivo.txt
