@@ -13,22 +13,10 @@ jobs:
     - name: Checkout do repositório
       uses: actions/checkout@v2
 
-    - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "MEU_SEGREDO" && echo "${{ secrets.MEU_SEGREDO }}" | base64
+    - name: Criar arquivo com os dados criptografados
+      run: echo "MEU_SEGREDO=$MEU_SEGREDO" >> arquivo.txt
       env:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
 
-    - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "MY_CLIENT_ID ${{ secrets.MY_CLIENT_ID }}" | base64
-      env:
-        MY_CLIENT_ID: ${{ secrets.MY_CLIENT_ID }}
-
-    - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "SECRET ${{ secrets.SECRET }}" | base64
-      env:
-        SECRET: ${{ secrets.SECRET }}
-
-    - name: Visualizar o valor do segredo (apenas para depuração)
-      run: echo "SECRET2" && echo "${{ secrets.SECRET2 }}" | base64
-      env:
-        SECRET2: ${{ secrets.SECRET2 }}
+    - name: Apresenta o conteudo do arquivo criptografado
+      run: cat arquivo.txt
