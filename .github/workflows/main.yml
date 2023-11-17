@@ -16,8 +16,18 @@ jobs:
     - name: Cria arquivo.txt
       run: touch arquivo.txt
 
-    - name: Alimenta o arquivo com os dados criptografados
+    - name: Alimenta o arquivo com os dados criptografados1
       run: echo "${{ secrets.MEU_SEGREDO }}" | base64 && >> arquivo.txt
+      env:
+        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
+
+    - name: Alimenta o arquivo com os dados criptografados2
+      run: echo "${{ secrets.MEU_SEGREDO }}" | base64 && >> arquivo.txt
+      env:
+        MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
+
+    - name: Alimenta o arquivo com os dados criptografados3
+      run: echo "${{MEU_SEGREDO }}" | base64 && >> arquivo.txt
       env:
         MEU_SEGREDO: ${{ secrets.MEU_SEGREDO }}
 
